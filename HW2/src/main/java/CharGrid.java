@@ -11,7 +11,15 @@ public class CharGrid {
 	 * @param grid
 	 */
 	public CharGrid(char[][] grid) {
-		this.grid = grid;
+        this.grid = new char[grid.length][];
+        for (int i = 0; i < grid.length; i++) {
+            this.grid[i] = new char[grid[i].length];
+        }
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                this.grid[i][j] = grid[i][j];
+            }
+        }
 	}
 	
 	/**
