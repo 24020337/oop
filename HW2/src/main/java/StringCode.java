@@ -54,14 +54,15 @@ public class StringCode {
             if(str.charAt(i) == '0') {
                 continue;
             }
-            if( str.charAt(i) <= '9' && str.charAt(i) >= '1' && Character.isDigit(str.charAt(i+1)) && i+1< str.length() ) {
+            if(!Character.isDigit(str.charAt(i))) {
+                stringBuilder.append(str.charAt(i));
+            }
+            if( str.charAt(i) <= '9' && str.charAt(i) >= '1') {
                 int val = str.charAt(i) - '0';
                 for(int j = 0; j < val;j++   ) {
                     stringBuilder.append(str.charAt(i+1));
                 }
-                i++;
             }
-            stringBuilder.append(str.charAt(i));
         }
         return  stringBuilder.toString();
     }
