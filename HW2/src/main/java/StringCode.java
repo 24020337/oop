@@ -48,7 +48,13 @@ public class StringCode {
         StringBuilder stringBuilder = new StringBuilder();
         for( int i = 0; i < str.length();i++ ) {
 
-            if( str.charAt(i) <= '9' && str.charAt(i) >= '1' && str.charAt(i+1) >= 'a' && str.charAt(i+1) <= 'z') {
+            if(Character.isDigit(str.charAt(i)) && i == str.length() - 1) {
+                return stringBuilder.toString();
+            }
+            if(str.charAt(i) == '0') {
+                continue;
+            }
+            if( str.charAt(i) <= '9' && str.charAt(i) >= '1' && Character.isDigit(str.charAt(i+1)) && i+1< str.length() ) {
                 int val = str.charAt(i) - '0';
                 for(int j = 0; j < val;j++   ) {
                     stringBuilder.append(str.charAt(i+1));
@@ -82,8 +88,4 @@ public class StringCode {
         return false; // YOUR CODE HERE
     }
 
-    public static void main(String[] args) {
-        String a = "a3tx2z";
-        System.out.println(blowup(a));
-    }
 }
