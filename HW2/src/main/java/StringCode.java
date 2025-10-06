@@ -89,4 +89,8 @@ public class StringCode {
         return false; // YOUR CODE HERE
     }
 
+    public static void main(String[] args) {
+        
+    }
+
 }
